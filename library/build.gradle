@@ -1,0 +1,28 @@
+apply plugin: 'com.android.library'
+apply plugin: 'com.novoda.bintray-release'
+
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+    }
+    lintOptions {
+        abortOnError false
+    }
+}
+
+dependencies {
+    provided 'com.android.support:appcompat-v7:25.4.0'
+}
+
+publish {
+    userOrg = 'huangweiyi'      //bintray注册的用户名
+    groupId = 'com.huxley'         //compile引用时的第1部分groupId
+    artifactId = 'fragmentation'     //compile引用时的第2部分项目名
+    publishVersion = '1.0.0'    //compile引用时的第3部分版本号
+    desc = 'Is one activity with more fragment'
+    website = 'https://github.com/wii-huxley/Fragmentation'
+}
